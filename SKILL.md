@@ -2,6 +2,7 @@
 name: reviewmetric-mcp
 description: Submits academic manuscripts (.docx) to the ReviewMetric 15-agent AI pipeline for rigorous scientific peer review and returns a comprehensive 0-100 score with feedback and critics.
 license: MIT
+icon: https://raw.githubusercontent.com/vktr93/reviewmetric-mcp/icon.png
 metadata:
   author: vktr93
 ---
