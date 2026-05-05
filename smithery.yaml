@@ -3,6 +3,7 @@ servers:
   - name: review-metric
     version: 1.0.0
     description: 15-agent scientific peer review and manuscript analysis pipeline.
+    icon: ./assets/icon.png
     run:
       command: uvx
       args:
