@@ -1,0 +1,40 @@
+{
+  "name": "reviewmetric-mcp",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "submit_manuscript",
+      "description": "Submits a locally saved .docx manuscript to the ReviewMetric 11-agent AI pipeline.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "file_path": {
+            "type": "string",
+            "description": "The absolute path on the local computer to the .docx file."
+          }
+        },
+        "required": [
+          "file_path"
+        ]
+      }
+    },
+    {
+      "name": "check_analysis_status",
+      "description": "Checks the status or retrieves the final report of a ReviewMetric analysis.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "description": "The unique UUID of the analysis run."
+          }
+        },
+        "required": [
+          "run_id"
+        ]
+      }
+    }
+  ],
+  "prompts": [],
+  "resources": []
+}

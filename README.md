@@ -1,11 +1,31 @@
-1) Create an account at https://www.reviewmetric.it.com/
+<p align="center">
+  <img src="icon.png" alt="Review Metric Logo" width="150"/>
+</p>
 
-2) Credit your account (you have one free credit to test)
+<h1 align="center">Review Metric MCP Server</h1>
 
-3) Go to the developper portal from the dashboard and generate an API key (REVIEWMETRIC_API_KEY)
+<p align="center">
+  <strong>Connect Claude to the world's most advanced 15-agent scientific peer review pipeline.</strong>
+</p>
 
-4) Modify the claude_desktop_config.json with this code (DO NOT FORGET TO REPLACE WITH YOUR API KEY):
+---
 
+## 🔬 What is Review Metric?
+Review Metric is a powerful AI tool designed for researchers, academics, and scientists. By installing this MCP server, you give Claude the ability to securely submit your local `.docx` manuscripts to a sophisticated 15-agent pipeline that rigorously analyzes your work for methodological flaws, novelty, and literature alignment.
+
+### ✨ Key Features
+*   **Multi-Agent Rigor:** Your manuscript is analyzed by 15 specialized AI agents, simulating a real-world peer review panel.
+*   **Comprehensive Scoring:** Receive a definitive 0-100 quality score to gauge your readiness for journal submission.
+*   **Zero Data Retention:** Your unpublished work is completely secure. We enforce strict zero-data retention, meaning your research is **never** used for AI training.
+*   **Local File Access:** Claude can securely read manuscripts directly from your computer without you having to copy/paste massive documents into the chat.
+
+---
+
+## 🚀 Installation for Claude Desktop
+
+To install this tool, simply add the following configuration to your `claude_desktop_config.json` file. 
+
+*(Note: You will need your personal API key from the Review Metric web dashboard https://www.reviewmetric.it.com/).*
 ```json
 {
   "mcpServers": {
@@ -13,9 +33,8 @@
       "command": "uvx",
       "args": ["reviewmetric-mcp"],
       "env": {
-        "REVIEWMETRIC_API_KEY": "your_api_key_from_the_web_dashboard"
+        "REVIEWMETRIC_API_KEY": "your_api_key_here"
       }
     }
   }
 }
-
