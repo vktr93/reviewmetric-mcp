@@ -6,6 +6,7 @@
 
 4) Modify the claude_desktop_config.json with this code (DO NOT FORGET TO REPLACE WITH YOUR API KEY):
 
+```json
 {
   "mcpServers": {
     "review-metric": {

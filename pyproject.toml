@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "reviewmetric-mcp"
 version = "1.0.0"
-description = "An MCP server connecting Claude to the Review Metric 15-agent scientific peer review pipeline."
+description = "15-agent scientific peer review and manuscript analysis pipeline."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
