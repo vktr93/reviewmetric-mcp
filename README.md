@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="icon.png" alt="Review Metric Logo" width="150"/>
-</p>
+
 
 <h1 align="center">Review Metric MCP Server</h1>
 
