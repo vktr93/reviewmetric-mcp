@@ -12,9 +12,7 @@
 Review Metric is a powerful AI tool designed for researchers, academics, and scientists. By installing this MCP server, you give Claude the ability to securely submit your local `.docx` manuscripts to a sophisticated 15-agent pipeline that rigorously analyzes your work for methodological flaws, novelty, and literature alignment.
 
 ## 🎥 See it in Action
-<p align="center">
-  <img src="https://raw.githubusercontent.com/vktr93/reviewmetric-mcp/main/demo.gif" alt="Review Metric Claude Desktop Demo" width="800"/>
-</p>
+![Review Metric Claude Desktop Demo](https://raw.githubusercontent.com/vktr93/reviewmetric-mcp/main/demo.gif)
 
 ### ✨ Key Features
 *   **Multi-Agent Rigor:** Your manuscript is analyzed by 15 specialized AI agents, simulating a real-world peer review panel.
