@@ -21,7 +21,7 @@ def get_headers():
 @mcp.tool()
 def submit_manuscript(file_path: str) -> str:
     """
-    Submits a locally saved .docx manuscript to the ReviewMetric 11-agent AI pipeline.
+    Submits a locally saved .docx manuscript to the ReviewMetric 15-agent AI pipeline.
     
     Args:
         file_path: The absolute path on the local computer to the .docx file.

@@ -4,7 +4,7 @@
   "tools": [
     {
       "name": "submit_manuscript",
-      "description": "Submits a locally saved .docx manuscript to the ReviewMetric 11-agent AI pipeline.",
+      "description": "Submits a locally saved .docx manuscript to the ReviewMetric 15-agent AI pipeline.",
       "inputSchema": {
         "type": "object",
         "properties": {
