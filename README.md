@@ -13,7 +13,7 @@ Review Metric is a powerful AI tool designed for researchers, academics, and sci
 
 ## 🎥 See it in Action
 <p align="center">
-  <img src="demo.gif" alt="Review Metric Claude Desktop Demo" width="800"/>
+  <img src="https://raw.githubusercontent.com/vktr93/reviewmetric-mcp/main/demo.gif" alt="Review Metric Claude Desktop Demo" width="800"/>
 </p>
 
 ### ✨ Key Features
