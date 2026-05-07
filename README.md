@@ -8,8 +8,13 @@
 
 ---
 
-## 🔬 What is Review Metric?
+# 🔬 What is Review Metric?
 Review Metric is a powerful AI tool designed for researchers, academics, and scientists. By installing this MCP server, you give Claude the ability to securely submit your local `.docx` manuscripts to a sophisticated 15-agent pipeline that rigorously analyzes your work for methodological flaws, novelty, and literature alignment.
+
+## 🎥 See it in Action
+<p align="center">
+  <img src="demo.gif" alt="Review Metric Claude Desktop Demo" width="800"/>
+</p>
 
 ### ✨ Key Features
 *   **Multi-Agent Rigor:** Your manuscript is analyzed by 15 specialized AI agents, simulating a real-world peer review panel.
@@ -19,7 +24,7 @@ Review Metric is a powerful AI tool designed for researchers, academics, and sci
 
 ---
 
-## 🚀 Installation for Claude Desktop
+#### 🚀 Installation for Claude Desktop
 
 To install this tool, simply add the following configuration to your `claude_desktop_config.json` file. 
 
