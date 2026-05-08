@@ -6,12 +6,12 @@
     "url": "https://github.com/vktr93/reviewmetric-mcp",
     "source": "github"
   },
-  "version": "1.0.1",
+  "version": "1.0.6",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "reviewmetric-mcp",
-      "version": "1.0.1",
+      "version": "1.0.6",
       "transport": {
         "type": "stdio"
       },

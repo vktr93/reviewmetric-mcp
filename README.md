@@ -38,4 +38,5 @@ To install this tool, simply add the following configuration to your `claude_des
   }
 }
 ```
-mcp-name: io.github.vktr93/reviewmetric
+
+<!-- mcp-name: io.github.vktr93/reviewmetric-mcp -->
