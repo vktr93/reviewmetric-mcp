@@ -1,5 +1,3 @@
-
-
 <h1 align="center">Review Metric MCP Server</h1>
 
 <p align="center">
@@ -15,10 +13,10 @@ Review Metric is a powerful AI tool designed for researchers, academics, and sci
 ![Review Metric Claude Desktop Demo](https://raw.githubusercontent.com/vktr93/reviewmetric-mcp/main/demo.gif)
 
 ### ✨ Key Features
-*   **Multi-Agent Rigor:** Your manuscript is analyzed by 15 specialized AI agents, simulating a real-world peer review panel.
-*   **Comprehensive Scoring:** Receive a definitive 0-100 quality score to gauge your readiness for journal submission.
-*   **Zero Data Retention:** Your unpublished work is completely secure. We enforce strict zero-data retention, meaning your research is **never** used for AI training.
-*   **Local File Access:** Claude can securely read manuscripts directly from your computer without you having to copy/paste massive documents into the chat.
+* **Multi-Agent Rigor:** Your manuscript is analyzed by 15 specialized AI agents, simulating a real-world peer review panel.
+* **Comprehensive Scoring:** Receive a definitive 0-100 quality score to gauge your readiness for journal submission.
+* **Zero Data Retention:** Your unpublished work is completely secure. We enforce strict zero-data retention, meaning your research is **never** used for AI training.
+* **Local File Access:** Claude can securely read manuscripts directly from your computer without you having to copy/paste massive documents into the chat.
 
 ---
 
