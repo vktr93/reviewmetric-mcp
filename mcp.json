@@ -1,16 +1,16 @@
 {
   "name": "reviewmetric-mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "tools": [
     {
       "name": "submit_manuscript",
-      "description": "Submits a locally saved .docx manuscript to the ReviewMetric 15-agent AI pipeline.",
+      "description": "Submit a local .docx manuscript to the ReviewMetric review panel (uses 1 credit).",
       "inputSchema": {
         "type": "object",
         "properties": {
           "file_path": {
             "type": "string",
-            "description": "The absolute path on the local computer to the .docx file."
+            "description": "Absolute path to the .docx file."
           }
         },
         "required": [
@@ -20,13 +20,29 @@
     },
     {
       "name": "check_analysis_status",
-      "description": "Checks the status or retrieves the final report of a ReviewMetric analysis.",
+      "description": "Progress of a review, or the full report when it is done.",
       "inputSchema": {
         "type": "object",
         "properties": {
           "run_id": {
             "type": "string",
-            "description": "The unique UUID of the analysis run."
+            "description": "Run ID from submit_manuscript."
+          }
+        },
+        "required": [
+          "run_id"
+        ]
+      }
+    },
+    {
+      "name": "get_report_json",
+      "description": "Complete report as JSON for a finished review.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "description": "Run ID of a completed review."
           }
         },
         "required": [

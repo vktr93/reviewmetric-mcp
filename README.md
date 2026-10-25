@@ -1,42 +1,56 @@
-<h1 align="center">Review Metric MCP Server</h1>
+<h1 align="center">ReviewMetric MCP Server</h1>
 
-<p align="center">
-  <strong>Connect Claude to the world's most advanced 15-agent scientific peer review pipeline.</strong>
-</p>
+<p align="center"><strong>Know what reviewers will say before you submit — from inside Claude.</strong></p>
 
 ---
 
-# 🔬 What is Review Metric?
-Review Metric is a powerful AI tool designed for researchers, academics, and scientists. By installing this MCP server, you give Claude the ability to securely submit your local `.docx` manuscripts to a sophisticated 15-agent pipeline that rigorously analyzes your work for methodological flaws, novelty, and literature alignment.
+ReviewMetric is a pre-submission review service for researchers. This MCP server lets Claude send a local
+`.docx` manuscript to ReviewMetric's panel of specialist AI referees and bring the report back into your chat.
 
-## 🎥 See it in Action
-![Review Metric Claude Desktop Demo](https://raw.githubusercontent.com/vktr93/reviewmetric-mcp/main/demo.gif)
+## What the panel checks
 
-### ✨ Key Features
-* **Multi-Agent Rigor:** Your manuscript is analyzed by 15 specialized AI agents, simulating a real-world peer review panel.
-* **Comprehensive Scoring:** Receive a definitive 0-100 quality score to gauge your readiness for journal submission.
-* **Zero Data Retention:** Your unpublished work is completely secure. We enforce strict zero-data retention, meaning your research is **never** used for AI training.
-* **Local File Access:** Claude can securely read manuscripts directly from your computer without you having to copy/paste massive documents into the chat.
+| Referee | What it looks at |
+|---|---|
+| Novelty & positioning | Your claims against the closest published, peer-reviewed work (retrieved from OpenAlex and ReviewMetric's vetted library), plus related papers you may have missed |
+| Claims & evidence | Whether each main claim is supported by your results; numbers that disagree between abstract, results and tables |
+| Methods & reproducibility | Design, controls, statistics, and a field-appropriate reproducibility checklist |
+| Citation integrity | Whether cited papers support the sentences they are attached to; retracted, uncited or missing references |
+| Figures | Captions, legibility, units, and agreement with the text |
+| Clarity | Title, abstract, structure, language, terminology |
+| Handling editor | Readiness recommendation, prioritised revisions and a referee-style report |
 
----
+Every issue points to a location in your manuscript. Scores come from fixed rubrics, not from a single AI guess.
 
-#### 🚀 Installation for Claude Desktop
+## Installation (Claude Desktop)
 
-To install this tool, simply add the following configuration to your `claude_desktop_config.json` file. 
+1. Create an API key in the ReviewMetric developer portal: https://www.reviewmetric.it.com/developer-portal
+2. Add this to `claude_desktop_config.json`:
 
-*(Note: You will need your personal API key from the Review Metric web dashboard https://www.reviewmetric.it.com/).*
 ```json
 {
   "mcpServers": {
     "review-metric": {
       "command": "uvx",
       "args": ["reviewmetric-mcp"],
-      "env": {
-        "REVIEWMETRIC_API_KEY": "your_api_key_here"
-      }
+      "env": { "REVIEWMETRIC_API_KEY": "rvk_live_..." }
     }
   }
 }
 ```
+
+3. Ask Claude: *"Review my manuscript at /Users/me/papers/draft.docx with ReviewMetric."*
+
+## Tools
+
+- `submit_manuscript(file_path)` — uploads the `.docx` (uses 1 credit) and returns a Run ID.
+- `check_analysis_status(run_id)` — progress while running; the full report (summary, scores, priority actions, issues, missing related work, referee report) when done.
+- `get_report_json(run_id)` — the complete report as JSON.
+
+A review usually takes 5 to 15 minutes. If the file cannot be reviewed (unreadable, too short, not a manuscript), the credit is refunded automatically.
+
+## Data
+
+Manuscripts are processed by ReviewMetric's API and the AI providers it uses under their paid API terms (no training
+on your data). See the ReviewMetric website for the current data-retention policy.
 
 <!-- mcp-name: io.github.vktr93/reviewmetric-mcp -->

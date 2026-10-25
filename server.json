@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.vktr93/reviewmetric",
-  "description": "An MCP server connecting Claude to the Review Metric 15-agent scientific peer review pipeline.",
+  "description": "Pre-submission peer review for scientific manuscripts with Claude: novelty, evidence, methods, citation and figure checks.",
   "repository": {
     "url": "https://github.com/vktr93/reviewmetric-mcp",
     "source": "github"
   },
-  "version": "1.0.6",
+  "version": "1.1.0",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "reviewmetric-mcp",
-      "version": "1.0.6",
+      "version": "1.1.0",
       "transport": {
         "type": "stdio"
       },
