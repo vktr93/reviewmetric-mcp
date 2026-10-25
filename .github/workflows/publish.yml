@@ -1,0 +1,25 @@
+# Publishes the package to PyPI when a GitHub release is published.
+# Uses PyPI "trusted publishing": no API token is stored anywhere.
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write   # lets PyPI verify this workflow
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Check the version matches the release tag
+        run: |
+          version=$(grep -m1 '^version' pyproject.toml | cut -d '"' -f2)
+          test "v$version" = "${GITHUB_REF_NAME}" || { echo "pyproject version $version does not match tag ${GITHUB_REF_NAME}"; exit 1; }
+      - run: uv build
+      - name: Publish
+        run: uv publish --trusted-publishing always
