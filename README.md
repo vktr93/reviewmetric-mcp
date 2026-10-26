@@ -1,11 +1,13 @@
 <h1 align="center">ReviewMetric MCP Server</h1>
 
-<p align="center"><strong>Know what reviewers will say before you submit — from inside Claude.</strong></p>
+<p align="center"><strong>Know what reviewers will say before you submit — from inside Claude.<br>Then fix the text in one go, and see where your work sits on the map of science.</strong></p>
 
 ---
 
 ReviewMetric is a pre-submission review service for researchers. This MCP server lets Claude send a local
-`.docx` manuscript to ReviewMetric's panel of specialist AI referees and bring the report back into your chat.
+`.docx` manuscript to ReviewMetric's panel of specialist AI referees, bring the report back into your chat,
+prepare the text fixes Claude can apply to your file, and explore the ReviewMetric Atlas: landmark discoveries,
+their Nobel Prizes and the frontiers research groups are pushing now.
 
 ## What the panel checks
 
@@ -23,7 +25,7 @@ Every issue points to a location in your manuscript. Scores come from fixed rubr
 
 ## Installation (Claude Desktop)
 
-1. Create an API key in the ReviewMetric developer portal: https://www.reviewmetric.it.com/developer-portal
+1. Create an API key at https://www.reviewmetric.it.com/developers
 2. Add this to `claude_desktop_config.json`:
 
 ```json
@@ -40,13 +42,38 @@ Every issue points to a location in your manuscript. Scores come from fixed rubr
 
 3. Ask Claude: *"Review my manuscript at /Users/me/papers/draft.docx with ReviewMetric."*
 
-## Tools
+## Commands
 
-- `submit_manuscript(file_path)` — uploads the `.docx` (uses 1 RM token) and returns a Run ID.
-- `check_analysis_status(run_id)` — progress while running; the full report (summary, scores, priority actions, issues, missing related work, referee report) when done.
-- `get_report_json(run_id)` — the complete report as JSON.
+Ask *"What can ReviewMetric do?"* (the `help_me` command) for the full list inside Claude.
 
-A review usually takes 5 to 15 minutes. If the file cannot be reviewed (unreadable, too short, not a manuscript), the RM token is returned automatically.
+| Command | What it does | Cost |
+|---|---|---|
+| `help_me` | Everything ReviewMetric can do in Claude, with examples | Free |
+| `submit_manuscript(file_path)` | Sends the `.docx` to the referees; returns a Run ID | 1 RM token |
+| `check_analysis_status(run_id)` | Progress; when done, the report, its place on the Atlas and the text fixes available | Free |
+| `get_report_json(run_id)` | The complete report as JSON | Free |
+| `list_my_reviews(limit)` | Your reviews with scores and Run IDs | Free |
+| `get_text_fixes(run_id)` | Preview of the fixes that need no new experiment; the exact edits once prepared | Free |
+| `prepare_text_fixes(run_id)` | Prepares the edits, which Claude can then apply to your manuscript | 1 RM token |
+| `search_atlas(query, field, limit)` | Finds discoveries and frontiers on the Atlas | Free |
+| `list_frontiers()` | The frontiers, what they build on, who is pushing them | Free |
+| `place_on_atlas(run_id)` | Where your manuscript sits, the landmarks it cites, the frontier ahead | Free |
+| `atlas_whats_new()` | This week's additions to the Atlas | Free |
+| `trace_path(from, to)` | The chain of discoveries linking two stars | Free |
+| `unlock_atlas_sources(confirm)` | The paper and research group behind every star, for 30 days | 1 RM token |
+| `account_status()` | RM tokens left, Atlas access, prices | Free |
+
+**Spending tokens.** RM tokens are ReviewMetric's one currency (1 for $9, 3 for $25, 10 for $70; your first is free).
+Claude never unlocks the Atlas sources on its own: it tells you the cost and waits for your explicit *yes* in the chat.
+
+A review usually takes about 5 minutes. If the file cannot be reviewed (unreadable, too short, not a manuscript), the RM token is returned automatically.
+
+**Try asking**
+- *"Review my manuscript at ~/papers/draft.docx and tell me what to fix first."*
+- *"Prepare the text fixes of my last review and apply them to the draft."*
+- *"Where does my manuscript sit on the Atlas, and which frontier is ahead of it?"*
+- *"Who is pushing room-temperature superconductivity right now?"*
+- *"Trace the path from the double helix to AlphaFold."*
 
 ## Data
 

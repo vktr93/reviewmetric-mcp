@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "reviewmetric-mcp"
-version = "1.1.0"
-description = "Pre-submission peer review for scientific manuscripts: a panel of AI referees checks novelty, evidence, methods, citations and figures."
+version = "1.2.0"
+description = "Pre-submission peer review for scientific manuscripts, text fixes Claude can apply, and the ReviewMetric Atlas of science and its frontiers."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "mcp>=1.2.0,<2",
+    "mcp>=1.6.0,<2",
     "requests>=2.31.0"
 ]
 

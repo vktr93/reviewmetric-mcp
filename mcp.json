@@ -1,7 +1,15 @@
 {
   "name": "reviewmetric-mcp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "tools": [
+    {
+      "name": "help_me",
+      "description": "Everything ReviewMetric can do in Claude, what costs an RM token, and example requests.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
     {
       "name": "submit_manuscript",
       "description": "Submit a local .docx manuscript to the ReviewMetric review panel (uses 1 RM token).",
@@ -20,13 +28,13 @@
     },
     {
       "name": "check_analysis_status",
-      "description": "Progress of a review, or the full report when it is done.",
+      "description": "Progress of a review; when done, the report, its place on the Atlas and the text fixes available.",
       "inputSchema": {
         "type": "object",
         "properties": {
           "run_id": {
             "type": "string",
-            "description": "Run ID from submit_manuscript."
+            "description": "Run ID of a review."
           }
         },
         "required": [
@@ -42,15 +50,159 @@
         "properties": {
           "run_id": {
             "type": "string",
-            "description": "Run ID of a completed review."
+            "description": "Run ID of a review."
           }
         },
         "required": [
           "run_id"
         ]
       }
+    },
+    {
+      "name": "list_my_reviews",
+      "description": "Your reviews, newest first, with scores and Run IDs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "1 to 50."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_text_fixes",
+      "description": "Free preview of the text fixes of a review; the exact edits once prepared.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "description": "Run ID of a review."
+          }
+        },
+        "required": [
+          "run_id"
+        ]
+      }
+    },
+    {
+      "name": "prepare_text_fixes",
+      "description": "Prepare the text fixes of a review (uses 1 RM token).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "description": "Run ID of a review."
+          }
+        },
+        "required": [
+          "run_id"
+        ]
+      }
+    },
+    {
+      "name": "search_atlas",
+      "description": "Search the ReviewMetric Atlas for discoveries and frontiers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string",
+            "description": "Physics, Materials, Chemistry, Biology, Medicine or Computer science."
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "list_frontiers",
+      "description": "The frontiers of the Atlas, what they build on and who is pushing them.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "place_on_atlas",
+      "description": "Where a reviewed manuscript sits on the Atlas, and the frontier ahead.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "description": "Run ID of a review."
+          }
+        },
+        "required": [
+          "run_id"
+        ]
+      }
+    },
+    {
+      "name": "atlas_whats_new",
+      "description": "This week's additions to the Atlas.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "trace_path",
+      "description": "The chain of discoveries linking two stars of the Atlas.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "from_discovery": {
+            "type": "string"
+          },
+          "to_discovery": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "from_discovery",
+          "to_discovery"
+        ]
+      }
+    },
+    {
+      "name": "unlock_atlas_sources",
+      "description": "Unlock the Atlas sources for 30 days (1 RM token), only after the user's explicit yes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "confirm": {
+            "type": "boolean",
+            "description": "True only after the user's explicit yes."
+          }
+        }
+      }
+    },
+    {
+      "name": "account_status",
+      "description": "RM tokens left, Atlas access, reviews and prices.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
     }
   ],
-  "prompts": [],
+  "prompts": [
+    {
+      "name": "help_me",
+      "description": "What can ReviewMetric do for me?"
+    }
+  ],
   "resources": []
 }
