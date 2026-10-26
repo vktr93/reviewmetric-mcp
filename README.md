@@ -42,11 +42,11 @@ Every issue points to a location in your manuscript. Scores come from fixed rubr
 
 ## Tools
 
-- `submit_manuscript(file_path)` — uploads the `.docx` (uses 1 credit) and returns a Run ID.
+- `submit_manuscript(file_path)` — uploads the `.docx` (uses 1 RM token) and returns a Run ID.
 - `check_analysis_status(run_id)` — progress while running; the full report (summary, scores, priority actions, issues, missing related work, referee report) when done.
 - `get_report_json(run_id)` — the complete report as JSON.
 
-A review usually takes 5 to 15 minutes. If the file cannot be reviewed (unreadable, too short, not a manuscript), the credit is refunded automatically.
+A review usually takes 5 to 15 minutes. If the file cannot be reviewed (unreadable, too short, not a manuscript), the RM token is returned automatically.
 
 ## Data
 

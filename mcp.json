@@ -4,7 +4,7 @@
   "tools": [
     {
       "name": "submit_manuscript",
-      "description": "Submit a local .docx manuscript to the ReviewMetric review panel (uses 1 credit).",
+      "description": "Submit a local .docx manuscript to the ReviewMetric review panel (uses 1 RM token).",
       "inputSchema": {
         "type": "object",
         "properties": {

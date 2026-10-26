@@ -30,7 +30,7 @@ def _error(response: requests.Response) -> str:
     if response.status_code == 401:
         return "ReviewMetric rejected the API key (invalid or revoked). Create a new key in the developer portal."
     if response.status_code == 402:
-        return "Not enough ReviewMetric credits. Top up at https://www.reviewmetric.it.com/dashboard"
+        return "Not enough RM tokens. Get RM tokens at https://www.reviewmetric.it.com/pricing"
     if response.status_code == 503:
         return "ReviewMetric is under maintenance. Try again later."
     return f"ReviewMetric error ({response.status_code}): {message}"
@@ -83,7 +83,7 @@ def _format_report(rep: dict) -> str:
 
 @mcp.tool()
 def submit_manuscript(file_path: str) -> str:
-    """Submit a local .docx manuscript to the ReviewMetric review panel (uses 1 credit).
+    """Submit a local .docx manuscript to the ReviewMetric review panel (uses 1 RM token).
 
     A panel of specialist AI referees checks novelty against the published literature, whether the
     results support the claims, methods and reproducibility, citation accuracy (including retracted
@@ -142,9 +142,9 @@ def check_analysis_status(run_id: str) -> str:
     if status == "completed":
         return _format_report(data.get("summary_report") or {})
     if status == "failed":
-        return f"The review failed: {data.get('error_message') or 'unknown error'}. The credit has been refunded."
+        return f"The review failed: {data.get('error_message') or 'unknown error'}. The RM token has been returned."
     if status == "cancelled":
-        return "This review was cancelled and the credit refunded."
+        return "This review was cancelled and the RM token returned."
     return f"Status: {status}"
 
 
